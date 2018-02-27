@@ -1,3 +1,4 @@
+//
 function sendRequest() {
     var xhr = new XMLHttpRequest();
     var i = 0;
@@ -27,6 +28,7 @@ function sendRequest() {
     };
 }
 
+//create a table
 var size = 151;
 var table = document.createElement('table');
 document.body.appendChild(table);
@@ -45,12 +47,14 @@ for (i = 0; i < 152; i++) {
     }
 
 }
+
+//put the pictures in td[0] element;
 for (var i = 0; i <= size; i++) {
     var putImg = document.querySelectorAll('tr')[i].getElementsByTagName('td')[0];
     putImg.innerHTML = "<img src=sprites/" + (i + 1) + ".png alt='' size='auto'>";
-
 }
 
+//create an event, when you point at a cell, that highlights the cell and sets up the permission to make it visible for the new third cell.
 table.onmouseover = function (event) {
     var target = event.target;
 
@@ -70,6 +74,7 @@ table.onmouseover = function (event) {
 
 };
 
+//create an event, when you leave the cell,it backs up  in a standard condition and sets up the permission to make the third cell is hidden
 table.onmouseout = function (event) {
     var target = event.target;
     var getChild = target.parentNode;
