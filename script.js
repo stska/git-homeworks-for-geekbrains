@@ -9,12 +9,9 @@ function checkState() {
     var getTextAreaId = document.getElementById("textArea").value;
     var div = document.getElementById('getNewText');
 
-    if (checkVal != getTextAreaId) {
-        var checkVal = getTextAreaId;
-        var newP = createP();
+        createP();
         clearDiv();
         createP();
-
 
         var addNewText = document.getElementById("first_div_area");
         var a = document.createTextNode(getTextAreaId.replace(/'/g, "\"").replace(/\b"/,"\'"));
