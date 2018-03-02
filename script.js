@@ -21,13 +21,13 @@ function checkState() {
         addNewText.appendChild(a);
 
     }
-
+    //deleat the part with text
     function clearDiv() {
         var addNewText = document.getElementById("first_div_area");
         div.removeChild(addNewText);
 
     }
-
+    
     function createP() {
 
         var create = document.createElement('p');
