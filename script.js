@@ -1,95 +1,75 @@
-//
-function sendRequest() {
-    var xhr = new XMLHttpRequest();
-    var i = 0;
+//RegExp for phone numbers and emails.
+var regNumb = new RegExp(/\+\d\(\d{3}\)\d{3}-\d{4}/);
+var regEmail = new RegExp(/[^\d]{1}\w{0,8}\@mail.ru/);
 
-    xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/?limit=151', true);
-    xhr.timeout = 55000;
-    xhr.ontimeout = function () {
-        console.log('Время вышло');
-    };
-    xhr.send();
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                var list = JSON.parse(xhr.responseText, function (key, value) {
-                    if (key == 'name') {
-                        var getSecondTd = document.querySelectorAll('tr')[i].getElementsByTagName('td')[1];
-                        var text = document.createElement('p');
-                        text.innerHTML = value;
-                        getSecondTd.appendChild(text);
+//the first task
+function checkState() {
 
-                        i++;
-                    }
-                });
-            }
-        }
-    };
-}
+    var getTextAreaId = document.getElementById("textArea").value;
+    var div = document.getElementById('getNewText');
 
-//create a table
-var size = 151;
-var table = document.createElement('table');
-document.body.appendChild(table);
+    if (checkVal != getTextAreaId) {
+        var checkVal = getTextAreaId;
+        var newP = createP();
+        clearDiv();
+        createP();
 
-for (i = 0; i < 152; i++) {
-    var tr = document.createElement('tr');
-    table.appendChild(tr);
-    tr.dataset.number = i;
-    for (var j = 0; j < 3; j++) {
-        var td = document.createElement('td');
-        td.dataset.number = j;
-        tr.appendChild(td);
-        if (j === 2) {
-            td.style.display = 'none';
-        }
+
+        var addNewText = document.getElementById("first_div_area");
+        var a = document.createTextNode(getTextAreaId.replace(/'/g, "\""));
+        addNewText.appendChild(a);
+
     }
 
-}
+    function clearDiv() {
+        var addNewText = document.getElementById("first_div_area");
+        div.removeChild(addNewText);
 
-//put the pictures in td[0] element;
-for (var i = 0; i <= size; i++) {
-    var putImg = document.querySelectorAll('tr')[i].getElementsByTagName('td')[0];
-    putImg.innerHTML = "<img src=sprites/" + (i + 1) + ".png alt='' size='auto'>";
-}
-
-//create an event, when you point at a cell, that highlights the cell and sets up the permission to make it visible for the new third cell.
-table.onmouseover = function (event) {
-    var target = event.target;
-
-    var getChild = target.parentNode;
-    var getParent = target.parentNode.parentNode;
-
-    var getDataP = getParent.getAttribute('data-number');
-    var getDataCh = getChild.getAttribute('data-number');
-    var make = document.querySelectorAll('tr')[getDataP].getElementsByTagName('td')[getDataCh].style.background = 'orange';
-
-
-    if (+getDataCh === 0) {
-        var add = document.querySelectorAll('tr')[getDataP].getElementsByTagName('td')[2].style.display = 'table-cell';
-        var addText = document.querySelectorAll('tr')[getDataP].getElementsByTagName('td')[2];
-        addText.innerHTML = '<p>Я искренне хотел добавить здесь доп.инф. но не смог :|</p>';
     }
 
-};
+    function createP() {
 
-//create an event, when you leave the cell,it backs up  in a standard condition and sets up the permission to make the third cell is hidden
-table.onmouseout = function (event) {
-    var target = event.target;
-    var getChild = target.parentNode;
-    var getParent = target.parentNode.parentNode;
-    var getDataP = getParent.getAttribute('data-number');
-    var getDataCh = getChild.getAttribute('data-number');
+        var create = document.createElement('p');
+        create.id = "first_div_area";
 
-    var make = document.querySelectorAll('tr')[getDataP].getElementsByTagName('td')[getDataCh].style.background = 'none';
-    var getParent = target.parentNode.parentNode;
-    var getData = getParent.getAttribute('data-number');
-    var add = document.querySelectorAll('tr')[getData].getElementsByTagName('td')[2].style.display = 'none';
+        div.appendChild(create);
 
-};
+    }
 
-sendRequest();
+    var checkVal = getTextAreaId;
 
+}
+
+//the second task
+var inputTwo = document.getElementById('input_2');
+
+inputTwo.addEventListener('click', function (e) {
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var email = document.getElementById('email').value;
+    var textArex_scnd = document.getElementById('textArea_scnd_form').value;
+
+
+    if (regNumb.test(phoneNumber)) {
+        var phNumber = document.getElementById('phoneNumber').style.backgroundColor = "green";
+
+    }
+    else {
+        var phNumber = document.getElementById('phoneNumber').style.backgroundColor = "red";
+    }
+
+    if (regEmail.test(email)) {
+        var emailStyle = document.getElementById('email').style.backgroundColor = "green";
+    }
+
+    else {
+        var emailStyle = document.getElementById('email').style.backgroundColor = "red";
+    }
+    if (textArex_scnd != "") {
+        var a = textArex_scnd;
+        textArex_scnd = document.getElementById('textArea_scnd_form').value = "";
+    }
+
+});
 
 

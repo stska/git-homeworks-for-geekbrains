@@ -1,16 +1,71 @@
-body {
-     width: 1000px;
-     margin: 100px auto;
- }
+* {
+    margin: 0px;
+    padding: 0px
+}
 
-td {
-    text-align: center;
-    outline: ridge darkcyan;
-    vertical-align: middle;
+.wrapper {
+    margin: auto;
+    width: 600px;
+    min-height: 350px;
+
+    background-color: #ffc107;
+}
+
+#textArea {
+
+    margin: 10px 10px;
+}
+
+#textAreaNew {
+    float: left;
+    margin: 100px 30px;
+}
+
+#first_form {
+    margin: 30px 20px;
 
 }
 
-p {
-    text-align: center;
-    font-size: 25px;
+#getNewText {
+    margin: 20px;
+}
+
+.second_task {
+    margin: 20px;
+}
+
+#second_form {
+    outline: solid black;
+
+    height: 170px;
+
+    margin-left: 0px;
+    border-left-width: 10px;
+
+}
+
+#email {
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+#textArea_scnd_form {
+    margin-left: 20px;
+    border-top-width: 0px;
+    margin-top: 10px;
+}
+
+.input_p {
+
+    margin-left: 200px;
+
+    width: 165px;
+    margin-top: 30px;
+
+}
+
+#phoneNumber {
+
+    margin-left: 20px;
+
 }

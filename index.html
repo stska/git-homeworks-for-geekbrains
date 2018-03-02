@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>homework_lesson2</title>
+    <title>Index</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<div id="result"></div>
-<script src="script.js"></script>
+<div class="wrapper">
+    <div class="first_task">
+        <form id="first_form" name="form">
+            <textarea id="textArea" rows="3" cols="10"></textarea>
+            <input id="sendwellmini" type="button" value="send" onClick="checkState()"/>
+        </form>
+        <div id="getNewText"><!--<p id="first_div_area">ss</p>--></div>
+    </div>
+    <div class="second_task">
+        <form id="second_form">
+            <input id="phoneNumber" type="tel" placeholder="+7(000)000-0000" value="">
+            <label for="phoneNumber">Телефон</label>
+
+            <input id="email" placeholder="email" type="email" value="">
+            <label for="email">email</label>
+
+            <textarea id="textArea_scnd_form" rows="3" cols="10"></textarea>
+            <label for="textArea_scnd_form">Давай общаться</label>
+
+            <p class="input_p"><input id="input_2" type="button" value="Send to middle of nowhere"></p>
+        </form>
+    </div>
+
+
+</div>
+<script src="script.js" rel="script"></script>
 </body>
 </html>
