@@ -14,7 +14,7 @@ function checkState() {
         createP();
 
         var addNewText = document.getElementById("first_div_area");
-        var a = document.createTextNode(getTextAreaId.replace(/'/g, "\"").replace(/\b"/,"\'"));
+        var a = document.createTextNode(getTextAreaId.replace(/\B'|'\B/g, "\""));
         addNewText.appendChild(a);
 
     }
